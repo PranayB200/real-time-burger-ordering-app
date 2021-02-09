@@ -36,3 +36,42 @@ section.hero {
   border: 2px solid #fff;
   color: #fff;
 }
+
+.btn-primary {
+  background: #FE5F1E;
+  transition: all 0.3s ease-in-out;
+}
+.btn-primary:hover {
+  background: #b23301;
+}
+
+section.cart {
+  background: #F8F8F8;
+}
+section.cart .amount {
+  color: #FE5F1E;
+}
+
+section.login {
+  background: #F8F8F8;
+  min-height: calc(100vh - 86px);
+}
+section.login a {
+  color: #FE5F1E;
+  transition: all 0.3s ease-in-out;
+}
+section.login a:hover {
+  color: #b23301;
+}
+
+section.register {
+  background: #F8F8F8;
+  min-height: calc(110vh - 86px);
+}
+section.register a {
+  color: #FE5F1E;
+  transition: all 0.3s ease-in-out;
+}
+section.register a:hover {
+  color: #b23301;
+}
