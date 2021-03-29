@@ -1,6 +1,7 @@
 
 import axios from 'axios'
 import Noty from 'noty'
+import { initAdmin } from './admin'
 
 window.addEventListener('DOMContentLoaded', function() {
 
@@ -33,5 +34,14 @@ window.addEventListener('DOMContentLoaded', function() {
             updateCart(pizza)
         })
     })
-})
 
+    // Remove alert message after X seconds 
+    const alertMsg = document.querySelector('#success-alert')
+    if(alertMsg) {
+        setTimeout(() => {
+            alertMsg.remove()
+        }, 2000)
+    }
+
+    initAdmin()
+})
