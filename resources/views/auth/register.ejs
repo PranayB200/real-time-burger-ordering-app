@@ -4,22 +4,25 @@
         <div class="bg-white lg:w-4/12 md:6/12 w-10/12 m-auto shadow-md">
             <div class="py-8 px-8 rounded-xl">
                 <h1 class="font-medium text-2xl mt-3 text-center">Register</h1>
-                <form action="" class="mt-6">
+                <form action="/register" method="POST" class="mt-6">
+                    <% if(messages.error) { %>
+                        <span class="text-red-500 text-sm"><%= messages.error %></span>
+                    <% } %>
                     <div class="my-5 text-sm">
                         <label for="name" class="block text-black">Name</label>
-                        <input type="text" autofocus id="username" class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" placeholder="Name" />
+                        <input name="name" type="text" value="<%= messages.name  %>" autofocus id="username" class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" placeholder="Name" />
                     </div>
                     <div class="my-5 text-sm">
                         <label for="email" class="block text-black">Email</label>
-                        <input type="email" autofocus id="username" class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" placeholder="Email" />
+                        <input name="email" type="email"value="<%= messages.email  %>" autofocus id="username" class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" placeholder="Email" />
                     </div>
                     <div class="my-5 text-sm">
                         <label for="password" class="block text-black">Password</label>
-                        <input type="password" id="password" class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" placeholder="Password" />
+                        <input name="password" type="password" id="password" class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" placeholder="Password" />
                     </div>
 
                     <center>
-                        <button class="inline-block cursor-pointer px-6 inline-block px-12 py-2 rounded-full btn-primary text-white font-bold mt-6">Register</button>
+                        <button type="submit" class="inline-block cursor-pointer px-6 inline-block px-12 py-2 rounded-full btn-primary text-white font-bold mt-6">Register</button>
                     </center>
                 </form>
 
