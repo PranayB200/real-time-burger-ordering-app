@@ -24,9 +24,15 @@ connection.once('open', () => {
 
 // Session store
 let mongoStore = new MongoDbStore({
-                mongooseConnection: connection,
-                collection: 'sessions'
-            })
+    url: process.env.DB_URL,
+    touchAfter: 24 * 60 * 60,
+    mongooseConnection: connection,
+    collection: 'sessions'
+})
+
+mongoStore.on("error", function(e) {
+    console.log("SESSION STORE ERROR ", e)
+})
 
 // Event emitter
 const eventEmitter = new Emitter()
