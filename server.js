@@ -14,13 +14,15 @@ const Emitter = require('events')
 
 const PORT = process.env.PORT || 3000
 
+// const dbUrl = 'mongodb://localhost/pizza'
+const dbUrl = process.env.DB_URL 
+
 
 app.use(express.json());
 app.use(express.urlencoded());
 
 // Dababase conection
-const url = 'mongodb://localhost/pizza'
-mongoose.connect(url, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: true});
+mongoose.connect(dbUrl, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: true});
 const connection = mongoose.connection;
 connection.once('open', () => {
     console.log('Database connected..');
@@ -30,10 +32,13 @@ connection.once('open', () => {
 
 
 // Session store
-let mongoStore = new MongoDbStore({
-                    mongooseConnection: connection,
-                    collection: 'sessions'
-                })
+let mongoStore=new MongoDbStore({
+    url:dbUrl,
+    mongooseConnection:connection,
+    touchAfter:24*60*60,
+    collection:'sessions',
+    secret: process.env.COOKIE_SECRET
+})
 
 // Event emitter
 const eventEmitter = new Emitter()
