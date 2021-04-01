@@ -2,22 +2,42 @@
     <section class="hero py-16">
         <div class="container mx-auto flex items-center justify-between px-20">
             <div class="w-1/2">
-                <h6 class="text-lg"><em>Are you hungry?</em></h6>
-                <h1 class="text-6xl font-bold">Don't Wait!</h1>
-                <button class="btn-primary px-6 py-2 rounded-full text-white font-bold mt-4">Order Now</button>
+                <h6 class="text-lg"><em>Welcome To Burger Café</em></h6>
+                <!-- <h1 class="text-6xl font-bold">Don't Wait!</h1> -->
+                <h1 class="text-2xl md:text-6xl font-bold typewrite" data-period="2000" data-type='[ "Hungry?", "Do Not Wait" ]'><span class="wrap"></span></h1>
+                <a href="#all-burgers"><button class="btn-primary px-6 py-2 rounded-full text-white font-bold mt-4">Order Now</button></a>
             </div>
-
-            <div class="w-1/2">
-                <img src="/img/hero-pizza.png" alt="">
+    
+            <div id="slider">
+                <figure>
+                    <img src="img/burger_01.jpg" alt>
+                    <img src="img/burger_02.jpg" alt>
+                    <img src="img/burger_03.jpg" alt>
+                    <img src="img/burger_04.jpg" alt>
+                    <img src="img/burger_01.jpg" alt>
+                </figure>
             </div>
         </div>
     </section>
+    <!-- <section class="hero py-32" style="background-image: url('/img/bg-2.jpg');">
+        <div class="container mx-auto flex items-center justify-between px-20">
+            <div class="mx-auto items-center">
+                <center><h6 class="text-xl text-white"><em>Are you hungry?</em></h6>
+                <br>
+                <h1 class="text-6xl font-bold typewrite text-white" data-period="2000" data-type='[ "Welcome to Burger Café", "We Make World-Class Burgers", "That Too...", "At An Affordable Price!" ]'><span class="wrap"></span></h1>
+                <br>
+                <br>
+                <a href="#all-burgers"><button class="btn-primary px-6 py-2 rounded-full text-white font-bold mt-4 text-xl">Order Now</button></a>
+                </center>
+            </div>
+        </div>
+    </section> -->
     <!-- Hero Section Ends -->
 
     <!-- Menu Section Starts -->
     <section class="menu container mx-auto py-8 px-20">
-        <h1 class="text-xl font-bold mb-8">All Pizzas</h1>
-        <div class="grid grid-cols-4 gap-12">
+        <center><h1 class="text-5xl font-bold mb-20" id="all-burgers">All Burgers</h1></center>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12">
             <% pizzas.forEach(function(pizza) { %>
                 <div>
                     <div>

@@ -14,7 +14,7 @@
                     <span><%= pizza.item.size %></span>
                 </div>
                 <span class="flex-1"><%= pizza.qty %> Pcs</span>
-                <span class="font-bold text-lg">₹ <%= pizza.item.price * pizza.qty %></span>
+                <span class="font-bold text-lg">₹ <%= pizza.item.price * pizza.qty %></span>                
             </div>
             <%  } %>
         </div>
@@ -27,6 +27,9 @@
             <% if(user) {  %>
                 <div>
                     <form action="/orders" method="POST" class="mt-12">
+                        <% if(messages.error) { %>
+                            <span class="text-red-500 text-sm"><%= messages.error %></span>
+                        <% } %>
                         <input name="phone" class="border border-gray-400 p-2 w-1/2 mb-4" type="text" placeholder="Phone number">
                         <input name="address" class="border border-gray-400 p-2 w-1/2" type="text" placeholder="Address">
                         <div class="mt-4">
