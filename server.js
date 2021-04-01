@@ -19,10 +19,15 @@ const dbUrl = process.env.DB_URL
 
 
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended:false}))
 
 // Dababase conection
-mongoose.connect(dbUrl, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: true});
+mongoose.connect(dbUrl,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true
+})
 const connection = mongoose.connection;
 connection.once('open', () => {
     console.log('Database connected..');
@@ -37,7 +42,8 @@ let mongoStore=new MongoDbStore({
     mongooseConnection:connection,
     touchAfter:24*60*60,
     collection:'sessions',
-    secret: process.env.COOKIE_SECRET
+    secret: process.env.COOKIE_SECRET  
+
 })
 
 // Event emitter
