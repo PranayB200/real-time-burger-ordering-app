@@ -13,13 +13,8 @@ const passport = require('passport')
 const Emitter = require('events')
 
 // Database connection
-(async () => {
-    try {
-        mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useCreateIndex:true, useUnifiedTopology: true, useFindAndModify : true });
-    } catch (err) {
-      console.log('error: ' + err)
-    }
-  })()
+
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useCreateIndex:true, useUnifiedTopology: true, useFindAndModify : true });
 const connection = mongoose.connection;
 
 connection.once('open', () => {
